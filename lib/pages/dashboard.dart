@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:math';
 
 import 'package:cherry_toast/cherry_toast.dart';
@@ -8,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:greetingbirthdayforyou/component/listmargin.dart';
 import 'package:greetingbirthdayforyou/component/listukuran.dart';
 import 'package:greetingbirthdayforyou/component/listwarna.dart';
+import 'package:lottie/lottie.dart';
 import 'package:video_player/video_player.dart';
 
 class Dashboard extends StatefulWidget {
@@ -29,23 +29,36 @@ Kami mendoakan agar setiap langkahmu selalu dilindungi, setiap impianmu tercapai
   bool isTapped = false;
   VideoPlayerController? _controllerVideo;
 
-  Timer? _timer;
+  String greeting() {
+    var hour = DateTime.now().hour;
+    if (hour < 11) {
+      return 'Pagi';
+    } else if (hour < 14) {
+      return 'Siang';
+    } else if (hour < 18) {
+      return 'Sore';
+    } else {
+      return 'Malam';
+    }
+  }
+
   bool onTouch = true;
 
   @override
   void initState() {
     // TODO: implement initState
-    _controllerVideo = VideoPlayerController.network(
-        "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4");
-    //_controllerVideo = VideoPlayerController.asset("videos/sample_video.mp4");
+    // _controllerVideo = VideoPlayerController.network(
+    //     "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4");
+    _controllerVideo = VideoPlayerController.asset("assets/p.mp4");
 
-    _controllerVideo?.setLooping(true);
     _controllerVideo?.initialize().then((_) {
       setState(() {
         // _controllerVideo?.play();
+        _controllerVideo?.setLooping(true);
       });
     });
     _controllerVideo?.setVolume(1.0);
+
     super.initState();
   }
 
@@ -53,7 +66,6 @@ Kami mendoakan agar setiap langkahmu selalu dilindungi, setiap impianmu tercapai
   void dispose() {
     // TODO: implement dispose
     _controllerVideo?.dispose();
-    _timer?.cancel();
     super.dispose();
   }
 
@@ -86,7 +98,7 @@ Kami mendoakan agar setiap langkahmu selalu dilindungi, setiap impianmu tercapai
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Selamat Malam",
+                      "Selamat ${greeting().toString()}",
                       style: TextStyle(fontSize: UkuranText.textkecil),
                     ),
                     Text(
@@ -97,7 +109,9 @@ Kami mendoakan agar setiap langkahmu selalu dilindungi, setiap impianmu tercapai
                     )
                   ],
                 ),
-                CircleAvatar()
+                CircleAvatar(
+                  backgroundImage: AssetImage("assets/orang.png"),
+                )
               ],
             ),
             SizedBox(
@@ -151,7 +165,7 @@ Kami mendoakan agar setiap langkahmu selalu dilindungi, setiap impianmu tercapai
                     ],
                   ),
                 ),
-                Image.asset("assets/cake.png")
+                Lottie.asset("assets/cakee.json", width: 150, height: 150)
               ],
             ),
             SizedBox(
