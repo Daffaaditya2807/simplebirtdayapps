@@ -18,6 +18,7 @@ class IntroAwal extends StatefulWidget {
 
 class _IntroAwalState extends State<IntroAwal> {
   CountdownTimerController? controllerwaktu;
+  bool isEnd = true;
 
   @override
   void initState() {
@@ -30,8 +31,13 @@ class _IntroAwalState extends State<IntroAwal> {
 
   @override
   Widget build(BuildContext context) {
-    // final birthdayModel = Provider.of<BirthdayModel>(context);
+    final birthdayModel = Provider.of<BirthdayModel>(context);
+    setState(() {
+      print(controllerwaktu?.isRunning);
+    });
+
     // TODO: implement build
+
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 110, 207, 234),
       body: Padding(
@@ -59,98 +65,166 @@ class _IntroAwalState extends State<IntroAwal> {
                 padding: const EdgeInsets.all(10),
                 child: Column(
                   children: [
-                    Lottie.asset("assets/jam.json", width: 125, height: 125),
-                    Text(
-                      "Menunggu waktu mencapai hari spesialmu",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(
-                      height: ListMargin.margibbawahsedikit,
-                    ),
-                    Text(
-                      "Harap sabar ya , jika waktu sudah selesai maka kamu dapat melanjutkan ke menu berikutnya",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: UkuranText.textsedang),
-                    ),
-                    SizedBox(
-                      height: ListMargin.margibbawah,
-                    ),
+                    // isEnd == true
+                    //     ? Lottie.asset("assets/jam.json",
+                    //         width: 125, height: 125)
+                    //     : Lottie.asset("assets/doneee.json",
+                    //         width: 125, height: 125),
+                    // isEnd == true
+                    //     ? Text(
+                    //         "Menunggu waktu mencapai hari spesialmuu",
+                    //         textAlign: TextAlign.center,
+                    //         style: TextStyle(
+                    //           fontWeight: FontWeight.bold,
+                    //         ),
+                    //       )
+                    //     : Text(
+                    //         "Selesai penantian mencapai hari spesialmuu",
+                    //         textAlign: TextAlign.center,
+                    //         style: TextStyle(
+                    //           fontWeight: FontWeight.bold,
+                    //         ),
+                    //       ),
+                    // SizedBox(
+                    //   height: ListMargin.margibbawahsedikit,
+                    // ),
+                    // Text(
+                    //   "Harap sabar ya , jika waktu sudah selesai maka kamu dapat melanjutkan ke menu berikutnya",
+                    //   textAlign: TextAlign.center,
+                    //   style: TextStyle(fontSize: UkuranText.textsedang),
+                    // ),
+                    // SizedBox(
+                    //   height: ListMargin.margibbawah,
+                    // ),
                     CountdownTimer(
                       // endTime: birthdayModel.endTime.millisecondsSinceEpoch,
                       textStyle: TextStyle(fontSize: 48, color: Colors.red),
                       widgetBuilder: (context, time) {
                         if (time == null) {
-                          return Container(
-                            decoration: BoxDecoration(
-                                color: Colors.amberAccent,
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                "Yeyy, Silakan sekarang kamu dapat tekan tombol lanjut dibawah :)",
+                          return Column(
+                            children: [
+                              Lottie.asset("assets/doneee.json",
+                                  width: 125, height: 125),
+                              Text(
+                                "Selesai penantian mencapai hari spesialmuu",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: UkuranText.textsedang),
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
+                              SizedBox(
+                                height: ListMargin.margibbawahsedikit,
+                              ),
+                              Text(
+                                "Harap sabar ya , jika waktu sudah selesai maka kamu dapat melanjutkan ke menu berikutnya",
+                                textAlign: TextAlign.center,
+                                style:
+                                    TextStyle(fontSize: UkuranText.textsedang),
+                              ),
+                              SizedBox(
+                                height: ListMargin.margibbawah,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                    color: Colors.amberAccent,
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    "Yeyy, Silakan sekarang kamu dapat tekan tombol lanjut dibawah :)",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: UkuranText.textsedang),
+                                  ),
+                                ),
+                              ),
+                            ],
                           );
                         } else {
-                          return Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          return Column(
                             children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: Colors.white,
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Text("${time.days} Hari"),
-                                ),
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: Colors.white,
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Text("${time.hours} Jam"),
+                              Lottie.asset("assets/jam.json",
+                                  width: 125, height: 125),
+                              Text(
+                                "Menunggu waktu mencapai hari spesialmuu",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: Colors.white,
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Text("${time.min} Menit"),
-                                ),
+                              SizedBox(
+                                height: ListMargin.margibbawahsedikit,
                               ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: Colors.white,
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Text("${time.sec} detik"),
-                                ),
-                              )
+                              Text(
+                                "Harap sabar ya , jika waktu sudah selesai maka kamu dapat melanjutkan ke menu berikutnya",
+                                textAlign: TextAlign.center,
+                                style:
+                                    TextStyle(fontSize: UkuranText.textsedang),
+                              ),
+                              SizedBox(
+                                height: ListMargin.margibbawah,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: Colors.white,
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: time.days != null
+                                          ? Text("${time.days} Hari")
+                                          : Text("0 Hari"),
+                                    ),
+                                  ),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: Colors.white,
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: time.hours != null
+                                          ? Text("${time.hours} Jam")
+                                          : Text("0 Hari"),
+                                    ),
+                                  ),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: Colors.white,
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: time.min != null
+                                          ? Text("${time.min} Menit")
+                                          : Text("0 Hari"),
+                                    ),
+                                  ),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: Colors.white,
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: time.sec != null
+                                          ? Text("${time.sec} detik")
+                                          : Text("0 Hari"),
+                                    ),
+                                  )
+                                ],
+                              ),
                             ],
                           );
                         }
                       },
                       controller: controllerwaktu,
-                      onEnd: () {
-                        CherryToast.info(title: Text("waktu Habis"))
-                            .show(context);
-                      },
+                      endTime: birthdayModel.birthday.millisecondsSinceEpoch,
                     ),
                   ],
                 ),
@@ -159,6 +233,7 @@ class _IntroAwalState extends State<IntroAwal> {
             Expanded(child: Container()),
             ElevatedButton(
               onPressed: () {
+                print("Dalam Fungsi OnPressed ${controllerwaktu?.isRunning}");
                 if (controllerwaktu?.isRunning == true) {
                   print("asu");
                   CherryToast.info(
