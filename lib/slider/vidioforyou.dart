@@ -56,6 +56,7 @@ class _VidioForYouState extends State<VidioForYou> {
       int? durasi = prefs.getInt('getDurasi');
       return durasi;
     }
+    return null;
   }
 
   @override

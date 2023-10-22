@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:greetingbirthdayforyou/pages/introawal.dart';
 import 'package:lottie/lottie.dart';
+import 'package:page_transition/page_transition.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -15,7 +17,13 @@ class _SplashScreenState extends State<SplashScreen> {
 
     super.initState();
     Timer(Duration(milliseconds: 3000), () {
-      Navigator.pushReplacementNamed(context, "/introawal");
+      Navigator.pushReplacement(
+          context,
+          PageTransition(
+              child: IntroAwal(),
+              duration: Duration(milliseconds: 2000),
+              reverseDuration: Duration(milliseconds: 2000),
+              type: PageTransitionType.topToBottom));
     });
   }
 

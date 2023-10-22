@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:greetingbirthdayforyou/component/listmargin.dart';
 import 'package:greetingbirthdayforyou/component/listukuran.dart';
+import 'package:greetingbirthdayforyou/pages/bottombar.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../component/listwarna.dart';
 
@@ -254,8 +256,15 @@ class _LoginState extends State<Login> {
                               bulanLog == "10" &&
                               tanggalLog == "28") {
                             print("benar");
-                            Navigator.pushReplacementNamed(
-                                context, "/barbawah");
+                            Navigator.pushReplacement(
+                                context,
+                                PageTransition(
+                                    child: BottomBar(),
+                                    duration: Duration(milliseconds: 1000),
+                                    reverseDuration:
+                                        Duration(milliseconds: 1000),
+                                    type: PageTransitionType.rightToLeft));
+                            ;
                           } else {
                             CherryToast.info(
                               title: Text(

@@ -5,6 +5,7 @@ import 'package:cherry_toast/cherry_toast.dart';
 import 'package:cherry_toast/resources/arrays.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../component/listmargin.dart';
 import '../component/listukuran.dart';
@@ -63,6 +64,16 @@ class _PilihKadoState extends State<PilihKado> {
         print("Data Sudah ada");
       }
     });
+  }
+
+  Future<void> openWhatsApp() async {
+    var phone = '+6285851065295';
+    // var whatsappUrl =
+    //     "https://wa.me/${phone}?text=woiii mana hadiah *${hadiahTerpilih}* ";
+    var waurl =
+        'whatsapp://send?phone=${phone}&text=woiii mana hadiah *${hadiahTerpilih}*';
+    final Uri _url = Uri.parse(waurl);
+    await launchUrl(_url);
   }
 
   @override
@@ -159,56 +170,59 @@ class _PilihKadoState extends State<PilihKado> {
                     }),
               ),
             ),
-            Container(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    "Selamat Kamu Mendapatkan",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: UkuranText.sedangbesar),
-                  ),
-                  SizedBox(
-                    height: ListMargin.margibbawahsedikit,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
-                    child: GestureDetector(
-                      onTap: () async {
-                        // final jembatan = await SharedPreferences.getInstance();
-                        // jembatan.clear();
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: ListWarna.biru,
+            hadiahTerpilih != ''
+                ? Container(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Selamat Kamu Mendapatkan",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: UkuranText.sedangbesar),
                         ),
-                        child: Padding(
-                          padding: EdgeInsets.all(20),
-                          child: Center(
-                              child: Text(
-                            "${hadiahTerpilih}",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          )),
+                        SizedBox(
+                          height: ListMargin.margibbawahsedikit,
                         ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: ListMargin.margibbawahsedikit,
-                  ),
-                  Container(
-                    width: 270,
-                    child: Text(
-                      "klik tombol diatas agar kamu dapat kado yang telah kamu pilih",
-                      style: TextStyle(fontSize: UkuranText.textsedang),
-                      textAlign: TextAlign.center,
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 25),
+                          child: GestureDetector(
+                            onTap: () async {
+                              // final jembatan = await SharedPreferences.getInstance();
+                              // jembatan.clear();
+                              openWhatsApp();
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                color: ListWarna.biru,
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.all(20),
+                                child: Center(
+                                    child: Text(
+                                  "${hadiahTerpilih}",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                )),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: ListMargin.margibbawahsedikit,
+                        ),
+                        Container(
+                          width: 270,
+                          child: Text(
+                            "klik tombol diatas agar kamu dapat kado yang telah kamu pilih",
+                            style: TextStyle(fontSize: UkuranText.textsedang),
+                            textAlign: TextAlign.center,
+                          ),
+                        )
+                      ],
                     ),
                   )
-                ],
-              ),
-            )
+                : Container()
           ],
         );
       },

@@ -6,7 +6,9 @@ import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 import 'package:greetingbirthdayforyou/component/listmargin.dart';
 import 'package:greetingbirthdayforyou/component/listukuran.dart';
 import 'package:greetingbirthdayforyou/component/listwarna.dart';
+import 'package:greetingbirthdayforyou/pages/login.dart';
 import 'package:lottie/lottie.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
 import '../model/ultah.dart';
@@ -235,7 +237,6 @@ class _IntroAwalState extends State<IntroAwal> {
               onPressed: () {
                 print("Dalam Fungsi OnPressed ${controllerwaktu?.isRunning}");
                 if (controllerwaktu?.isRunning == true) {
-                  print("asu");
                   CherryToast.info(
                     title: Text(
                       "Sabar",
@@ -250,7 +251,14 @@ class _IntroAwalState extends State<IntroAwal> {
                     ),
                   ).show(context);
                 } else {
-                  Navigator.pushReplacementNamed(context, "/login");
+                  Navigator.pushReplacement(
+                      context,
+                      PageTransition(
+                          child: Login(),
+                          duration: Duration(milliseconds: 1000),
+                          reverseDuration: Duration(milliseconds: 1000),
+                          opaque: true,
+                          type: PageTransitionType.rightToLeft));
                 }
               },
               child: Text(

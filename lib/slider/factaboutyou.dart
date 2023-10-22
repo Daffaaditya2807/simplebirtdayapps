@@ -57,7 +57,7 @@ class _FactAboutYouState extends State<FactAboutYou> {
             // color: Colors.blue,
             width: 270,
             child: Text(
-              "Kamu telah berhasil melewati hidup dengan suka maupun duka , Bangga sekali bukan dengan  pencapaianmu semua itu dengan waktu yang  kau tempuh selama",
+              "waktu yang sangat lama bukan , banyak sekali kisah yang kamu ukir begitu hebatnya kamu bisa melewati masa masa yang sulit yang kemudian terdapat sebuah kebahagian dan kesanangan atas hasil yang kamu peroleh. ",
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: UkuranText.textsedang),
             ),

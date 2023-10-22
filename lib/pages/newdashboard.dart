@@ -9,8 +9,6 @@ import 'package:greetingbirthdayforyou/slider/ucapanultah.dart';
 import 'package:greetingbirthdayforyou/slider/vidioforyou.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../component/listukuran.dart';
-
 class DashboardNew extends StatefulWidget {
   @override
   State<DashboardNew> createState() => _DashboardNewState();
@@ -76,7 +74,7 @@ class _DashboardNewState extends State<DashboardNew> {
                     ],
                   ),
                   CircleAvatar(
-                    backgroundImage: AssetImage("assets/orang.png"),
+                    backgroundImage: AssetImage("assets/della_2.jpg"),
                     maxRadius: 25,
                   )
                 ],

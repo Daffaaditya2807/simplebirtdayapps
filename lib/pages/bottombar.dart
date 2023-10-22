@@ -27,13 +27,13 @@ class _BottomBarState extends State<BottomBar> {
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
-        icon: Icon(Icons.grid_view_outlined),
+        icon: Icon(Icons.cake_rounded),
         title: ("Dashboard"),
         activeColorPrimary: CupertinoColors.systemPink,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(Icons.cake_rounded),
+        icon: Icon(Icons.chat),
         title: ("Tentang"),
         activeColorPrimary: CupertinoColors.activeBlue,
         inactiveColorPrimary: CupertinoColors.systemGrey,

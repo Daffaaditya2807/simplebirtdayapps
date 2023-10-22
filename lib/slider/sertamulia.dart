@@ -12,10 +12,8 @@ class SertaMulia extends StatefulWidget {
 }
 
 class _SertaMuliaState extends State<SertaMulia> {
-  DateTime target = DateTime(2023, 10, 14);
-
   String? betweenDays() {
-    DateTime target = DateTime(2023, 10, 20);
+    DateTime target = DateTime(2023, 10, 28);
     DateFormat formatter = DateFormat('yyyy-MM-dd');
     String fd = formatter.format(DateTime.now());
 
@@ -25,15 +23,18 @@ class _SertaMuliaState extends State<SertaMulia> {
 
     if (target.isAtSameMomentAs(getformat)) {
       return "Tepat pada hari ini";
-    } else if (target.isAfter(getformat)) {
-      var p = target.difference(getformat).inDays;
+    } else if (getformat.isAfter(target)) {
+      var p = getformat.difference(target).inDays;
       return "${p.toString()} hari yang telah berlalu";
+    } else {
+      return "kosong";
     }
-    return "";
   }
 
   @override
   Widget build(BuildContext context) {
+    String check = betweenDays().toString();
+    print("halo dek ${check}");
     // TODO: implement build
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -61,18 +62,20 @@ class _SertaMuliaState extends State<SertaMulia> {
         SizedBox(
           height: ListMargin.margibbawahsedikit,
         ),
-        Container(
-          decoration: BoxDecoration(
-              color: ListWarna.biruBackground,
-              borderRadius: BorderRadius.circular(10)),
-          child: Padding(
-            padding: const EdgeInsets.all(5.0),
-            child: Text(
-              "${betweenDays()}",
-              style: TextStyle(fontSize: UkuranText.textdesc),
-            ),
-          ),
-        ),
+        check != "kosong"
+            ? Container(
+                decoration: BoxDecoration(
+                    color: ListWarna.biruBackground,
+                    borderRadius: BorderRadius.circular(10)),
+                child: Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: Text(
+                    "${betweenDays()}",
+                    style: TextStyle(fontSize: UkuranText.textdesc),
+                  ),
+                ),
+              )
+            : Container(),
         Lottie.asset("assets/cakee.json", width: 180, height: 180),
         SizedBox(
           height: ListMargin.margibbawah + 20,
