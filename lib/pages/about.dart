@@ -16,107 +16,110 @@ class Aboutme extends StatelessWidget {
     return Scaffold(
       backgroundColor: ListWarna.biruBackground,
       body: SafeArea(
-          child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SizedBox(
-            height: 30,
-          ),
-          Container(
-            width: double.infinity,
-            height: 220,
-            child: Stack(
-              alignment: Alignment.topCenter,
-              children: [
-                Positioned(
-                  top: 50,
-                  child: Container(
-                    width: widthsamping,
-                    height: 150,
-                    decoration: BoxDecoration(
-                        color: ListWarna.kuningBackground,
-                        borderRadius: BorderRadius.circular(15)),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 30),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(
-                            "Della Ayuke Fika Siwi",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 18),
-                          ),
-                          Text(
-                            "28 Oktober 2023",
-                            style: TextStyle(),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                CircleAvatar(
-                  backgroundColor: Colors.pink,
-                  maxRadius: 60,
-                  backgroundImage: AssetImage("assets/della_2.jpg"),
-                ),
-              ],
+          child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: 30,
             ),
-          ),
-          SizedBox(
-            height: ListMargin.margibbawahsedikit,
-          ),
-          Container(
-              width: widthsamping,
-              decoration: BoxDecoration(
-                  color: ListWarna.kuningBackground,
-                  borderRadius: BorderRadius.circular(15)),
-              child: Column(
+            Container(
+              width: double.infinity,
+              height: 220,
+              child: Stack(
+                alignment: Alignment.topCenter,
                 children: [
-                  SizedBox(
-                    height: ListMargin.margibbawahsedikit,
-                  ),
-                  Text(
-                    "Tentang & Tujuan",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                  ),
-                  SizedBox(
-                    height: ListMargin.margibbawahsedikit,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(12.0),
+                  Positioned(
+                    top: 50,
                     child: Container(
-                      width: double.infinity,
-                      decoration:
-                          BoxDecoration(color: Colors.amberAccent.shade100),
+                      width: widthsamping,
+                      height: 150,
+                      decoration: BoxDecoration(
+                          color: ListWarna.kuningBackground,
+                          borderRadius: BorderRadius.circular(15)),
                       child: Padding(
-                        padding: EdgeInsets.all(15),
+                        padding: EdgeInsets.symmetric(vertical: 30),
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Text(
-                              "${kata_kata}",
-                              textAlign: TextAlign.center,
-                            ),
-                            SizedBox(
-                              height: ListMargin.margibbawah,
+                              "Della Ayuke Fika Siwi",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 18),
                             ),
                             Text(
-                              "WISH YOU ALL THE BEST",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            SizedBox(
-                              height: ListMargin.margibbawahsedikit,
-                            ),
-                            Text("#DARR28",
-                                style: TextStyle(fontWeight: FontWeight.bold))
+                              "28 Oktober 2023",
+                              style: TextStyle(),
+                            )
                           ],
                         ),
                       ),
                     ),
-                  )
+                  ),
+                  CircleAvatar(
+                    backgroundColor: Colors.pink,
+                    maxRadius: 60,
+                    backgroundImage: AssetImage("assets/della_2.jpg"),
+                  ),
                 ],
-              ))
-        ],
+              ),
+            ),
+            SizedBox(
+              height: ListMargin.margibbawahsedikit,
+            ),
+            Container(
+                width: widthsamping,
+                decoration: BoxDecoration(
+                    color: ListWarna.kuningBackground,
+                    borderRadius: BorderRadius.circular(15)),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: ListMargin.margibbawahsedikit,
+                    ),
+                    Text(
+                      "Tentang & Tujuan",
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    ),
+                    SizedBox(
+                      height: ListMargin.margibbawahsedikit,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Container(
+                        width: double.infinity,
+                        decoration:
+                            BoxDecoration(color: Colors.amberAccent.shade100),
+                        child: Padding(
+                          padding: EdgeInsets.all(15),
+                          child: Column(
+                            children: [
+                              Text(
+                                "${kata_kata}",
+                                textAlign: TextAlign.center,
+                              ),
+                              SizedBox(
+                                height: ListMargin.margibbawah,
+                              ),
+                              Text(
+                                "WISH YOU ALL THE BEST",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: ListMargin.margibbawahsedikit,
+                              ),
+                              Text("#DARR28",
+                                  style: TextStyle(fontWeight: FontWeight.bold))
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ))
+          ],
+        ),
       )),
     );
   }
