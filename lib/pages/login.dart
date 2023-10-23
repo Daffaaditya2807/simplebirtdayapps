@@ -18,6 +18,8 @@ class _LoginState extends State<Login> {
   TextEditingController nama = TextEditingController();
   TextEditingController tanggal = TextEditingController();
   TextEditingController bulan = TextEditingController();
+  double numberOfQuestions = 50;
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -260,11 +262,10 @@ class _LoginState extends State<Login> {
                                 context,
                                 PageTransition(
                                     child: BottomBar(),
-                                    duration: Duration(milliseconds: 1000),
+                                    duration: Duration(milliseconds: 2000),
                                     reverseDuration:
-                                        Duration(milliseconds: 1000),
+                                        Duration(milliseconds: 2000),
                                     type: PageTransitionType.rightToLeft));
-                            ;
                           } else {
                             CherryToast.info(
                               title: Text(

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:greetingbirthdayforyou/component/listwarna.dart';
 import 'package:greetingbirthdayforyou/pages/introawal.dart';
 import 'package:lottie/lottie.dart';
 import 'package:page_transition/page_transition.dart';
@@ -31,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      backgroundColor: Colors.blueAccent,
+      backgroundColor: ListWarna.biruBackground,
       body: Center(
         child: LottieBuilder.asset(
           "assets/balonn.json",
