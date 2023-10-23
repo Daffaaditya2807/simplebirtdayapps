@@ -19,7 +19,7 @@ class _VidioForYouState extends State<VidioForYou> {
   @override
   void initState() {
     // TODO: implement initState
-    _controllerVideo = VideoPlayerController.asset("assets/p.mp4");
+    _controllerVideo = VideoPlayerController.asset("assets/testt.mp4");
 
     _controllerVideo?.initialize().then((_) async {
       final prefs = await SharedPreferences.getInstance();
